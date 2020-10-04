@@ -47,12 +47,12 @@ Using the data dictionary from both data sets, I managed to found the name of re
 
 
 ## Input Features :
-- NP : Average Number of people in a housing
+- NP : Average Number of people in a Housing
 - H1 : Proportion of Housing with only one people
 - H5 : Proportion of Housing with 5 people or more
 - O : Proportion of Owners
 - SPH : Proportion of Single-Parent Housing
-- HY : Average Year of House construction
+- HY : Average Year of House Construction
 
 
 ## Output Features (to predict) :
