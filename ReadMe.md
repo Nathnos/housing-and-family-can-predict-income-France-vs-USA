@@ -50,7 +50,7 @@ Using the data dictionary from both data sets, I managed to found the name of re
 - NP : Average Number of people in a housing
 - H1 : Proportion of Housing with only one people
 - H5 : Proportion of Housing with 5 people or more
-- HO : Proportion of Housing Owner
+- HO : Proportion of Housing Owners
 - SPH : Proportion of Single-Parent Housing
 - HY : Average Year of House construction
 
