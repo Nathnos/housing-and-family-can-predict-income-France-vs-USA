@@ -50,11 +50,11 @@ Using the data dictionary from both data sets, I managed to found the name of re
 - NP : Average Number of people in a Housing
 - H1 : Proportion of Housing with only one people
 - H5 : Proportion of Housing with 5 people or more
-- O : Proportion of Owners
+- HO : Proportion of House Owners
 - SPH : Proportion of Single-Parent Housing
 - HY : Average Year of House Construction
 
 
 ## Output Features (to predict) :
-- Proportion of poor people
-- Average Standard of Living ([french calculation](https://fr.wikipedia.org/wiki/Niveau_de_vie_en_France))
+- PP : Proportion of Poor People
+- SL : Average Standard of Living ([french calculation](https://fr.wikipedia.org/wiki/Niveau_de_vie_en_France))
