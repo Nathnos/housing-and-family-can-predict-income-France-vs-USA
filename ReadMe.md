@@ -15,7 +15,7 @@ Using the data dictionary from both data sets, I managed to found the name of re
 
 ## Output Features (to predict) :
 - PP : Proportion of Poor People
-- SL : Average Standard of Living ([french calculation]([https://fr.wikipedia.org/wiki/Niveau_de_vie_en_France]))
+- SL : Average Standard of Living ([french calculation](https://fr.wikipedia.org/wiki/Niveau_de_vie_en_France))
 
 # Convert the data
 Let's now merge CSV files into a unique [feather](https://github.com/wesm/feather) file.
