@@ -4,7 +4,7 @@ Cleans the data, using tools from feature_engineering.py
 
 import pandas as pd
 
-from preprocessing.feature_engineering import (
+from src.preprocessing.feature_engineering import (
     handle_missing_values,
     feature_engineering,
     split_and_scale,

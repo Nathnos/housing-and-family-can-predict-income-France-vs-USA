@@ -42,6 +42,7 @@ def handle_missing_values(fr_dataframe, us_person_df, us_housing_df):
     # Drop lines with no prediction
     us_person_df = us_person_df[us_person_df["POVPIP"].notna()]
     us_person_df = us_person_df[us_person_df["WAGP"].notna()]
+    us_person_df = us_person_df[us_person_df["WAGP"] > 0]
     fr_dataframe = fr_dataframe[fr_dataframe["Men_pauv"].notna()]
     fr_dataframe = fr_dataframe[fr_dataframe["Ind_snv"].notna()]
     # For input data, fill empty values with median
@@ -103,6 +104,7 @@ def us_engineering(us_person_df, us_housing_df):
     us_dataframe["PP"] = (us_dataframe["POVPIP"] < 100).astype(int)
     # CU stands for Consumption Units ; used for Standard of living
     us_dataframe["CU"] = us_dataframe.apply(count_cu, axis=1)
+    us_dataframe = us_dataframe[us_dataframe["CU"] > 0]
     us_dataframe["SL"] = us_dataframe["WAGP"] / us_dataframe["CU"]
     return us_dataframe[features]
 
@@ -111,7 +113,7 @@ def count_cu(row):
     number_of_person = row["NOC"]
     number_of_children = row["NP"]
     number_of_person -= 1
-    remaining_adults = number_of_person - number_of_children
+    remaining_adults = max(number_of_person - number_of_children, 0)
     return 1 + remaining_adults * 0.5 + number_of_children * 0.3
 
 

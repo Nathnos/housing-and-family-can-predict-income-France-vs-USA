@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
-from preprocessing.clean_data import data_cleaning
-from preprocessing.csv_to_feather import csv_to_feather
+from src.preprocessing.clean_data import data_cleaning
+from src.preprocessing.csv_to_feather import csv_to_feather
 
 
 def main():
