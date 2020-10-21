@@ -123,25 +123,44 @@ def fr_engineering(fr_dataframe):
     fr_dataframe["H5"] = fr_dataframe["Men_5ind"] / fr_dataframe["Men"]
     fr_dataframe["SPH"] = fr_dataframe["Men_fmp"] / fr_dataframe["Men"]
     df_weighted_sum = (
-        fr_dataframe["Log_av45"] * 1945
-        + fr_dataframe["Log_45_70"] * 1958
-        + fr_dataframe["Log_70_90"] * 1980
-        + fr_dataframe["Log_ap90"] * 1995
+            fr_dataframe["Log_av45"] * 1945
+            + fr_dataframe["Log_45_70"] * 1958
+            + fr_dataframe["Log_70_90"] * 1980
+            + fr_dataframe["Log_ap90"] * 1995
     )
     df_sum = (
-        fr_dataframe["Log_av45"]
-        + fr_dataframe["Log_45_70"]
-        + fr_dataframe["Log_70_90"]
-        + fr_dataframe["Log_ap90"]
+            fr_dataframe["Log_av45"]
+            + fr_dataframe["Log_45_70"]
+            + fr_dataframe["Log_70_90"]
+            + fr_dataframe["Log_ap90"]
     )
     fr_dataframe["HY"] = df_weighted_sum / df_sum
     fr_dataframe["OH"] = (
-        fr_dataframe["Men_prop"].astype("float") / fr_dataframe["Men"]
+            fr_dataframe["Men_prop"].astype("float") / fr_dataframe["Men"]
     )
     fr_dataframe["PP"] = (
-        fr_dataframe["Men_pauv"].astype("float") / fr_dataframe["Men"]
+            fr_dataframe["Men_pauv"].astype("float") / fr_dataframe["Men"]
     )
+    fr_dataframe["PP"] = fr_dataframe.apply(french_pp_class, axis=1)
     fr_dataframe["SL"] = (
-        fr_dataframe["Ind_snv"].astype("float") / fr_dataframe["Ind"]
+            fr_dataframe["Ind_snv"].astype("float") / fr_dataframe["Ind"]
     )
     return fr_dataframe[features]
+
+
+def french_pp_class(row):
+    """
+    Transforms a proportion of poor people (pp) into a class representing an interval of proportion.
+    """
+    poor_people_proportion = row["PP"]
+    if poor_people_proportion < 0.05:
+        return 0
+    if poor_people_proportion < 0.09:
+        return 1
+    if poor_people_proportion < 0.13:
+        return 2
+    if poor_people_proportion < 0.18:
+        return 3
+    if poor_people_proportion < 0.25:
+        return 4
+    return 5
