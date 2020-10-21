@@ -30,4 +30,8 @@ Let's now merge CSV files into a unique [feather](https://github.com/wesm/feathe
 I loaded every csv file, selected relevent columns, merged all dataframes, then saved to feather.  
 I then handled missing values, and did some Feature engineering.
 
+For France, instead of predicting the porportion of poor people, the model predicts a class representing an interval.
+
+![classes graph](https://raw.githubusercontent.com/Nathnos/housing-and-family-can-predict-income-France-vs-USA/master/medias/french_classes.jpg)
+
 For a deeper look, you can check the preprocessing folder.
