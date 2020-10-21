@@ -13,7 +13,7 @@ from sklearn.impute import SimpleImputer
 import numpy as np
 import pandas as pd
 
-input_features = ["NP", "H1", "H5", "SPH", "HY", "HO"]
+input_features = ["NP", "H1", "H5", "SPH", "HY", "OH"]
 output_features = ["PP", "SL"]
 features = input_features + output_features
 
@@ -100,7 +100,7 @@ def us_engineering(us_person_df, us_housing_df):
     us_dataframe["H1"] = (us_dataframe["NP"] == 1).astype(int)
     us_dataframe["H5"] = (us_dataframe["NP"] >= 5).astype(int)
     us_dataframe["SPH"] = (us_dataframe["NP"] >= 5).astype(int)
-    us_dataframe["HO"] = (us_dataframe["TAXP"] > 1).astype(int)
+    us_dataframe["OH"] = (us_dataframe["TAXP"] > 1).astype(int)
     us_dataframe["PP"] = (us_dataframe["POVPIP"] < 100).astype(int)
     # CU stands for Consumption Units ; used for Standard of living
     us_dataframe["CU"] = us_dataframe.apply(count_cu, axis=1)
@@ -135,7 +135,7 @@ def fr_engineering(fr_dataframe):
         + fr_dataframe["Log_ap90"]
     )
     fr_dataframe["HY"] = df_weighted_sum / df_sum
-    fr_dataframe["HO"] = (
+    fr_dataframe["OH"] = (
         fr_dataframe["Men_prop"].astype("float") / fr_dataframe["Men"]
     )
     fr_dataframe["PP"] = (
