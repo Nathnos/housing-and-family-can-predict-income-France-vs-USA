@@ -1,3 +1,6 @@
+# Caution !
+This is an outdated project, and I'm not even sure I read the data correctly, so be careful.
+
 # France VS USA: How Accurately Can Salary Be Predicted By Housing And Family Data ?
 
 This project aims at knowing if some housing properties and family status were good predictors of income. 
